@@ -7,6 +7,7 @@ import AllGroups from "../Components/AllGroups";
 import PrivateRoutes from "./PrivateRoutes";
 import MyGroups from "../Components/MyGroups";
 import CreateGroup from "../Components/CreateGroup";
+import GroupDetails from "../Components/GroupDetails";
 
 
 const router = createBrowserRouter([
@@ -32,6 +33,7 @@ const router = createBrowserRouter([
       },
       {
         path:'/all-groups',
+        loader:()=>fetch('http://localhost:3000/groups'),
         Component:AllGroups
       },
       {
@@ -41,6 +43,11 @@ const router = createBrowserRouter([
       {
         path:'/create-group',
         element:<PrivateRoutes><CreateGroup></CreateGroup></PrivateRoutes>
+      },
+      {
+        path:'/group-details/:id',
+        loader:()=>fetch('http://localhost:3000/groups'),
+        element:<PrivateRoutes><GroupDetails></GroupDetails></PrivateRoutes>
       }
     ]
   },
