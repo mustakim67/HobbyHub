@@ -4,12 +4,12 @@ import { Link, useNavigate } from 'react-router';
 import { AuthContext } from '../Context/AuthContext';
 import { auth } from '../Firebase/Firebase.init';
 import { toast } from 'react-toastify';
+import Swal from 'sweetalert2';
 
 const Register = () => {
     const [user, setUser] = useState(false)
-    const { createUser, googleSignIn, updateUserProfile } = useContext(AuthContext)
+    const { createUser, googleSignIn, updateUserProfile,status,setStatus } = useContext(AuthContext);
     const provider = new GoogleAuthProvider();
-
     const navigate = useNavigate();
 
     const handleRegisterData = (e) => {
@@ -29,45 +29,60 @@ const Register = () => {
                     displayName: name,
                     photoURL: photo
                 })
-                    .then(() => {
-                        setUser({
-                            ...createdUser, displayName: name,
-                            photoURL: photo
-                        });
-
-                        navigate('/home');
-                        toast.success('Registration successful!', {
-                            autoClose: 4000,
-                            pauseOnHover: true,
-                            draggable: true,
-                        });
-                    })
-                    .catch((error) => {
-                        console.error('Profile update failed:', error);
-                        toast.error("Profile update failed.");
+                .then(() => {
+                    setUser({
+                        ...createdUser,
+                        displayName: name,
+                        photoURL: photo
                     });
-            })
-            .catch(error => {
-                toast.error("Registration failed!", {
-                    autoClose: 4000,
-                    pauseOnHover: true,
-                    draggable: true,
+                    
+                    const DBprofile={
+                           name,
+                           email,
+                           photo
+                    }
+                    fetch('http://localhost:3000/users', {
+                        method: 'POST',
+                        headers: {
+                            'content-type': 'application/json'
+                        },
+                        body: JSON.stringify(DBprofile)
+                    })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.insertedId) {
+                            Swal.fire({
+                                position: "top-end",
+                                icon: "success",
+                                title: "Your account is created.",
+                                showConfirmButton: false,
+                                timer: 1500
+                            });
+                            navigate('/home');
+                        }
+                    });
+                })
+                .catch(error => {
+                    toast.error("Registration failed!", {
+                        autoClose: 4000,
+                        pauseOnHover: true,
+                        draggable: true,
+                    });
+                    console.log('Create user error:', error);
                 });
-                console.log('Create user error:', error);
             });
     };
-
 
     const handleGoogleSignIn = (auth, provider) => {
         googleSignIn(auth, provider)
             .then(result => {
-                console.log(result)
-                navigate('/home')
+                console.log(result);
+                navigate('/home');
             })
             .catch(error => {
-                console.log(error)
-            })
-    }
+                console.log(error);
+            });
+    };
     return (
         <div>
             <div className="min-h-[500px] py-15 flex items-center justify-center bg-gray-100 px-4">
@@ -111,11 +126,7 @@ const Register = () => {
                                 placeholder="mail@site.com"
                                 className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                             />
-                            {user && (
-                                <p className="text-red-500 text-sm mt-1">
-                                    A user already exists with this email.
-                                </p>
-                            )}
+
                         </div>
                         <div className='relative'>
                             <label className="block text-sm font-medium text-gray-700 mb-1">
@@ -150,7 +161,7 @@ const Register = () => {
 
                         <p className="text-center text-sm text-gray-600 mt-5">
                             Already have an account ?{' '}
-                            <Link to="/login" className="text-blue-600 hover:underline">
+                            <Link to="/login" onClick={() => setStatus(!status)} className="text-blue-600 hover:underline">
                                 login
                             </Link>
                         </p>

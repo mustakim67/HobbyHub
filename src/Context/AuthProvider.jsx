@@ -2,12 +2,13 @@
 import { useEffect, useState } from "react";
 import { AuthContext } from "./AuthContext";
 import { auth } from "../Firebase/Firebase.init";
-import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
+import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile} from "firebase/auth";
 
 
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState();
     const [loading, setLoading] = useState(true);
+     const [status, setStatus] = useState(false);
 
     //Google Sign In
     const googleSignIn = (auth, provider) => {
@@ -32,7 +33,7 @@ const AuthProvider = ({ children }) => {
         return signOut(auth);
     }
 
-    //Update Profile
+     //Update Profile
     const updateUserProfile = (UpdateData) => {
         return updateProfile(auth.currentUser,UpdateData)
     }
@@ -58,7 +59,9 @@ const AuthProvider = ({ children }) => {
         createUser,
         signInUser,
         logOut,
-        updateUserProfile
+        updateUserProfile,
+        status, 
+        setStatus
     }
     return (
         <AuthContext value={userInfo}>

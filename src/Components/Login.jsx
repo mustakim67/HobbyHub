@@ -6,7 +6,7 @@ import { AuthContext } from '../Context/AuthContext';
 import { auth } from '../Firebase/Firebase.init';
 
 const Login = () => {
-    const { signInUser, googleSignIn, user } = useContext(AuthContext);
+    const { signInUser, googleSignIn, user,status,setStatus } = useContext(AuthContext);
     const navigate = useNavigate();
     const [failed, setFailed] = useState(false);
 
@@ -125,7 +125,7 @@ const Login = () => {
 
                     <p className="text-center text-sm text-gray-600 mt-5">
                         Don’t have an account?{' '}
-                        <Link to="/register" className="text-blue-600 hover:underline">
+                        <Link to="/register" onClick={() => setStatus(!status)} className="text-blue-600 hover:underline">
                             Register
                         </Link>
                     </p>
