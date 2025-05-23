@@ -8,12 +8,14 @@ import PrivateRoutes from "./PrivateRoutes";
 import MyGroups from "../Components/MyGroups";
 import CreateGroup from "../Components/CreateGroup";
 import GroupDetails from "../Components/GroupDetails";
+import Error from "../Components/Error";
 
 
 const router = createBrowserRouter([
   {
     path: "/",
     Component: Mainlayout,
+    errorElement:<Error></Error>,
     children:[
       {
         index:true,
@@ -38,6 +40,7 @@ const router = createBrowserRouter([
       },
       {
         path:'/my-groups',
+         loader:()=>fetch('http://localhost:3000/groups'),
         element:<PrivateRoutes><MyGroups></MyGroups></PrivateRoutes>
       },
       {
