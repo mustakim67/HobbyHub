@@ -61,8 +61,8 @@ const MyGroups = () => {
             body: JSON.stringify(updateData)
         })
         .then(res => res.json())
-        .then(data =>{
-            if(data.modifiedCount){
+        .then(response =>{
+            if(response.modifiedCount){
                 Swal.fire({
                     position: "top-end",
                     icon: "success",
@@ -70,16 +70,19 @@ const MyGroups = () => {
                     showConfirmButton: false,
                     timer: 1500
                   });
+                  const updatedGroup = { ...Update, ...updateData };
+            const updatedData = data.map(group =>group._id === Update._id ? updatedGroup : group);
+             setData(updatedData);
             }
         })
     };
     return (
         <div className="px-4 md:px-[7%] py-8">
             {result.length > 0 ? (
-                <div className="overflow-x-auto">
+                <div className="overflow-x-auto w-full">
                     <h1 className="text-2xl font-bold text-center mb-10 underline">My Groups</h1>
                     <table className="min-w-full text-sm md:text-base border border-gray-200 rounded-lg">
-                        <thead className="bg-gray-100 text-gray-700">
+                        <thead>
                             <tr>
                                 <th className="text-left px-4 py-3">Group</th>
                                 <th className="text-left px-4 py-3">Category</th>
@@ -92,14 +95,13 @@ const MyGroups = () => {
                         </thead>
                         <tbody>
                             {result.map((group) => (
-                                <tr key={group._id} className="hover:bg-gray-50 transition border-t border-gray-100">
+                                <tr key={group._id} className=" border-t border-gray-100">
                                     <td className="px-4 py-3">
                                         <div className="flex items-center gap-3">
                                             <div className="avatar">
                                                 <div className="mask mask-squircle w-12 h-12">
                                                     <img
                                                         src={group.photoURL}
-                                                        alt={group.groupName}
                                                         className="object-cover"
                                                     />
                                                 </div>
@@ -232,7 +234,7 @@ const MyGroups = () => {
                             <input
                                 type="text"
                                 name="userName"
-                                className="w-full input input-bordered bg-gray-100 cursor-not-allowed"
+                                className="w-full input input-bordered  cursor-not-allowed"
                                 value={user?.displayName || ""}
                                 readOnly
                             />
@@ -243,7 +245,7 @@ const MyGroups = () => {
                             <input
                                 type="email"
                                 name="userEmail"
-                                className="w-full input input-bordered bg-gray-100 cursor-not-allowed"
+                                className="w-full input input-bordered  cursor-not-allowed"
                                 value={user?.email || ""}
                                 readOnly
                             />

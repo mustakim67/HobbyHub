@@ -10,7 +10,7 @@ const AllGroups = () => {
 
             <div className="overflow-x-auto">
                 <table className="min-w-full text-sm md:text-base border border-gray-200 rounded-lg">
-                    <thead className="bg-gray-100 text-gray-700">
+                    <thead>
                         <tr>
                             <th className="text-left px-4 py-3">Group</th>
                             <th className="text-left px-4 py-3">Category</th>
@@ -20,7 +20,7 @@ const AllGroups = () => {
 
                     <tbody>
                         {data.map((group) => (
-                            <tr key={group._id} className="hover:bg-gray-50 transition border-t border-gray-100">
+                            <tr key={group._id} className=" border-t border-gray-100">
                                 <td className="px-4 py-3">
                                     <div className="flex items-center gap-3">
                                         <div className="avatar">

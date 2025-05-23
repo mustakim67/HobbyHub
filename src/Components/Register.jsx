@@ -48,35 +48,53 @@ const Register = () => {
                         },
                         body: JSON.stringify(DBprofile)
                     })
-                    .then(res => res.json())
-                    .then(data => {
-                        if (data.insertedId) {
-                            Swal.fire({
-                                position: "top-end",
-                                icon: "success",
-                                title: "Your account is created.",
-                                showConfirmButton: false,
-                                timer: 1500
+                        .then(res => res.json())
+                        .then(data => {
+                            if (data.insertedId) {
+                                Swal.fire({
+                                    position: "top-end",
+                                    icon: "success",
+                                    title: "Your account is created.",
+                                    showConfirmButton: false,
+                                    timer: 1500
+                                });
+                                navigate('/home');
+                            }
+                        })
+                        .catch(error => {
+                            toast.error("Registration failed!", {
+                                autoClose: 4000,
+                                pauseOnHover: true,
+                                draggable: true,
                             });
-                            navigate('/home');
-                        }
-                    });
+                        });
                 })
                 .catch(error => {
-                    toast.error("Registration failed!", {
+                    toast.error("Profile update failed!", {
                         autoClose: 4000,
                         pauseOnHover: true,
                         draggable: true,
                     });
-                    console.log('Create user error:', error);
                 });
+        })
+        .catch(error => {
+            toast.error("Registration failed!", {
+                autoClose: 4000,
+                pauseOnHover: true,
+                draggable: true,
             });
-    };
+        });
+};
 
     const handleGoogleSignIn = (auth, provider) => {
         googleSignIn(auth, provider)
             .then(result => {
-                console.log(result);
+             Swal.fire({
+             title: "Congratulations!",
+             text: "You've successfully logged in",
+             icon: "success",
+             onfirmButtonText: "Okay"
+             });
                 navigate('/home');
             })
             .catch(error => {

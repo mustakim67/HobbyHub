@@ -43,8 +43,13 @@ const Login = () => {
 
     const handleGoogleSignIn = () => {
         googleSignIn(auth, provider)
-            .then((result) => {
-                console.log(result);
+            .then(() => {
+                 Swal.fire({
+                    title: "Congratulations!",
+                    text: "You've successfully logged in",
+                    icon: "success",
+                    confirmButtonText: "Okay"
+                });
                 navigate('/home');
             })
             .catch((error) => {
