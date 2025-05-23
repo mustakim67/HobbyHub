@@ -6,6 +6,8 @@ import Swal from 'sweetalert2';
 
 const MyGroups = () => {
     const { user } = useContext(AuthContext);
+    const [Update, setUpdate] = useState(null)
+    console.log(Update)
     const groups = useLoaderData();
     const [data, setData] = useState(groups)
     const result = data.filter(group => group.userEmail === user.email) || "";
@@ -44,7 +46,9 @@ const MyGroups = () => {
             }
         });
     }
-
+    const handleUpdateData = e => {
+        e.preventDefault();
+    }
     return (
         <div className="px-4 md:px-[7%] py-8">
             {result.length > 0 ? (
@@ -82,7 +86,10 @@ const MyGroups = () => {
                                     <td className="px-4 py-3">{group.category}</td>
                                     <td className="px-4 py-3 text-center">
                                         <div className="flex flex-wrap gap-2 justify-center">
-                                            <Link><span className="btn btn-sm flex gap-1">Update <MdEdit size={15} /></span></Link>
+                                            <Link><span className="btn btn-sm flex gap-1" onClick={() => {
+                                                setUpdate(group);
+                                                document.getElementById('my_modal_4').showModal()
+                                            }}>Update <MdEdit size={15} /></span></Link>
                                             <Link><span onClick={() => handleDelete(group._id)} className="btn btn-sm flex gap-1">Delete <MdDelete size={15} /></span></Link>
                                         </div>
                                     </td>
@@ -96,6 +103,141 @@ const MyGroups = () => {
                     <h1> No groups found !!</h1>
                 </div>
             )}
+
+            {/* You can open the modal using document.getElementById('ID').showModal() method */}
+            <dialog id="my_modal_4" className="modal">
+                <div className="modal-box w-11/12 max-w-5xl">
+                    <h3 className="font-bold text-lg text-center">Update Group Information</h3>
+                    <form
+                        onSubmit={handleUpdateData}
+                        className="mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mt-10 p-6 bg-white shadow-xl rounded-xl"
+                    >
+                        <div>
+                            <label className="block mb-1 font-semibold">Group Name</label>
+                            <input
+                                type="text"
+                                name="groupName"
+                                className="w-full input input-bordered"
+                                defaultValue={Update?.groupName}
+                                placeholder="Enter new group name"
+                                required
+                            />
+                        </div>
+
+                        <div>
+                            <label className="block mb-1 font-semibold">Hobby Category</label>
+                            <select
+                                name="category"
+                                className="w-full select select-bordered"
+                                value={Update?.category} //value kaj kore default value kaj kore na
+                            >
+                                <option value="">Select a category</option>
+                                <option value="Drawing and Painting">Drawing and Painting</option>
+                                <option value="Photography">Photography</option>
+                                <option value="Video Gaming">Video Gaming</option>
+                                <option value="Fishing">Fishing</option>
+                                <option value="Running">Running</option>
+                                <option value="Cooking">Cooking</option>
+                                <option value="Reading">Reading</option>
+                                <option value="Writing">Writing</option>
+                            </select>
+
+
+                        </div>
+
+                        <div className="md:col-span-2">
+                            <label className="block mb-1 font-semibold">Description</label>
+                            <textarea
+                                name="description"
+                                rows="3"
+                                className="w-full textarea textarea-bordered"
+                                placeholder="Describe the group"
+                                defaultValue={Update?.description}
+                                required
+                            ></textarea>
+                        </div>
+
+                        <div>
+                            <label className="block mb-1 font-semibold">Meeting Location</label>
+                            <input
+                                type="text"
+                                name="location"
+                                className="w-full input input-bordered"
+                                placeholder="Location"
+                                defaultValue={Update?.location}
+                                required
+                            />
+                        </div>
+
+                        <div>
+                            <label className="block mb-1 font-semibold">End Date</label>
+                            <input
+                                type="date"
+                                name="endDate"
+                                className="w-full input input-bordered"
+                                defaultValue={Update?.endDate}
+                                required
+                            />
+                        </div>
+
+                        <div>
+                            <label className="block mb-1 font-semibold">Max Members</label>
+                            <input
+                                type="number"
+                                name="maxMembers"
+                                className="w-full input input-bordered"
+                                placeholder="1-10"
+                                defaultValue={Update?.maxMembers}
+                                required
+                            />
+                        </div>
+
+                        <div>
+                            <label className="block mb-1 font-semibold">Image URL</label>
+                            <input
+                                type="text"
+                                name="photoURL"
+                                className="w-full input input-bordered"
+                                placeholder='https://'
+                                defaultValue={Update?.photoURL}
+                            />
+                        </div>
+
+                        <div>
+                            <label className="block mb-1 font-semibold">User Name</label>
+                            <input
+                                type="text"
+                                name="userName"
+                                className="w-full input input-bordered bg-gray-100 cursor-not-allowed"
+                                value={user?.displayName || ""}
+                                readOnly
+                            />
+                        </div>
+
+                        <div>
+                            <label className="block mb-1 font-semibold">User Email</label>
+                            <input
+                                type="email"
+                                name="userEmail"
+                                className="w-full input input-bordered bg-gray-100 cursor-not-allowed"
+                                value={user?.email || ""}
+                                readOnly
+                            />
+                        </div>
+
+
+                        <div className="md:col-span-2">
+                            <button type="submit" className="w-full btn btn-primary mt-4">Update Group Information</button>
+                        </div>
+                    </form>
+                    <div className="modal-action">
+                        <form method="dialog">
+                            {/* if there is a button, it will close the modal */}
+                            <button className="btn w-full mx-auto">Close</button>
+                        </form>
+                    </div>
+                </div>
+            </dialog>
         </div>
     );
 };

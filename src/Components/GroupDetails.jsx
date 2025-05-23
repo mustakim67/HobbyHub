@@ -23,7 +23,7 @@ const GroupDetails = () => {
                     <p><span className="font-semibold">Meeting Location:</span> {actualData.location}</p>
                     <p><span className="font-semibold">End Date:</span> {actualData.endDate}</p>
                     <p><span className="font-semibold">Max Members:</span> {actualData.maxMembers}</p>
-                    <p><span className="font-semibold">Created By:</span> {actualData.userName} ({actualData.userEmail})</p>
+                    <p><span className="font-semibold">Created By:</span> {actualData.userName}</p>
                     <button className='btn btn-sm rounded-xl bg-blue-700 text-white'>Join Group</button>
                 </div>
             </div>
