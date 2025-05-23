@@ -10,7 +10,7 @@ const MyGroups = () => {
     console.log(Update)
     const groups = useLoaderData();
     const [data, setData] = useState(groups)
-    const result = data.filter(group => group.userEmail === user.email) || "";
+    const result = data.filter(groups => groups.userEmail === user.email) || "";
 
     const handleDelete = (_id) => {
         console.log(_id);
@@ -46,9 +46,33 @@ const MyGroups = () => {
             }
         });
     }
-    const handleUpdateData = e => {
+    const handleUpdateFormData = e => {
         e.preventDefault();
-    }
+        const form = e.target;
+        const formData = new FormData(form);
+        const updateData = Object.fromEntries(formData.entries());
+        updateData.category = form.category.value;
+        //send update data to db
+        fetch(`http://localhost:3000/groups/${Update._id}`, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(updateData)
+        })
+        .then(res => res.json())
+        .then(data =>{
+            if(data.modifiedCount){
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Group Information updated successfully.",
+                    showConfirmButton: false,
+                    timer: 1500
+                  });
+            }
+        })
+    };
     return (
         <div className="px-4 md:px-[7%] py-8">
             {result.length > 0 ? (
@@ -109,7 +133,7 @@ const MyGroups = () => {
                 <div className="modal-box w-11/12 max-w-5xl">
                     <h3 className="font-bold text-lg text-center">Update Group Information</h3>
                     <form
-                        onSubmit={handleUpdateData}
+                        onSubmit={handleUpdateFormData}
                         className="mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mt-10 p-6 bg-white shadow-xl rounded-xl"
                     >
                         <div>
@@ -225,17 +249,12 @@ const MyGroups = () => {
                             />
                         </div>
 
-
-                        <div className="md:col-span-2">
-                            <button type="submit" className="w-full btn btn-primary mt-4">Update Group Information</button>
+                        <div className='flex gap-5'>
+                            <button onClick={() => document.getElementById('my_modal_4').close()} type="submit" className="w-full btn btn-primary mt-4 mx-auto">Update Group Information</button>
+                            <button onClick={() => document.getElementById('my_modal_4').close()} className="w-full btn btn-primary mt-4 mx-auto">Close</button>
                         </div>
+
                     </form>
-                    <div className="modal-action">
-                        <form method="dialog">
-                            {/* if there is a button, it will close the modal */}
-                            <button className="btn w-full mx-auto">Close</button>
-                        </form>
-                    </div>
                 </div>
             </dialog>
         </div>
