@@ -73,6 +73,9 @@ const MyGroups = () => {
                   const updatedGroup = { ...Update, ...updateData };
             const updatedData = data.map(group =>group._id === Update._id ? updatedGroup : group);
              setData(updatedData);
+             form.reset();
+             setUpdate(null);
+             document.getElementById('my_modal_4').close();
             }
         })
     };
@@ -136,6 +139,7 @@ const MyGroups = () => {
                     <h3 className="font-bold text-lg text-center">Update Group Information</h3>
                     <form
                         onSubmit={handleUpdateFormData}
+                        key={Update?._id}
                         className="mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mt-10 p-6 bg-white shadow-xl rounded-xl"
                     >
                         <div>
@@ -155,7 +159,7 @@ const MyGroups = () => {
                             <select
                                 name="category"
                                 className="w-full select select-bordered"
-                                value={Update?.category} //value kaj kore default value kaj kore na
+                                defaultValue={Update?.category || ""} 
                             >
                                 <option value="">Select a category</option>
                                 <option value="Hikings">Hikings</option>
@@ -254,8 +258,8 @@ const MyGroups = () => {
                         </div>
 
                         <div className='flex flex-col md:flex-row gap-5'>
-                            <button onClick={() =>{ document.getElementById('my_modal_4').close()}} type="submit" className="w-full btn btn-primary mt-4 mx-auto">Update Group Information</button>
-                            <button onClick={() =>
+                            <button type="submit" className="w-full btn btn-primary mt-4 mx-auto">Update Group Information</button>
+                            <button type='button' onClick={() =>
                             {
                                  document.getElementById('my_modal_4').close()}} className="w-full btn btn-primary md:mt-4 mx-auto">Close</button>
                         </div>
