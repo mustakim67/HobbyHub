@@ -58,7 +58,7 @@ const Home = () => {
     <FeaturedGroups></FeaturedGroups>
     <div className="px-[7%] py-12">
   <section className="px-[7%] py-12">
-      <h2 className="text-2xl md:text-3xl font-bold mb-10 text-center">
+      <h2 className="text-2xl md:text-3xl font-semibold mb-10 text-center">
         <span className='text-blue-500'>Learn More</span> about your passion
       </h2>
 

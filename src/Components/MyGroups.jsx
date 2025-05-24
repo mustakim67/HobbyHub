@@ -254,8 +254,10 @@ const MyGroups = () => {
                         </div>
 
                         <div className='flex flex-col md:flex-row gap-5'>
-                            <button onClick={() => document.getElementById('my_modal_4').close()} type="submit" className="w-full btn btn-primary mt-4 mx-auto">Update Group Information</button>
-                            <button onClick={() => document.getElementById('my_modal_4').close()} className="w-full btn btn-primary md:mt-4 mx-auto">Close</button>
+                            <button onClick={() =>{ document.getElementById('my_modal_4').close()}} type="submit" className="w-full btn btn-primary mt-4 mx-auto">Update Group Information</button>
+                            <button onClick={() =>
+                            {
+                                 document.getElementById('my_modal_4').close()}} className="w-full btn btn-primary md:mt-4 mx-auto">Close</button>
                         </div>
 
                     </form>
