@@ -1,6 +1,6 @@
 # HobbyHub
 
-**Live Site:** [(https://hobby-hub-fc4c7.web.app/home)]
+**Live Site:** [(https://hobby-hub-fc4c7.web.app)]
 - ##HobbyHub is a platform where people can discover and join local hobby-based groups (e.g., book clubs, hiking crews, painting circles) or create their own. It encourages social engagement through shared interests, helping people build communities around their passions.
 
 
@@ -23,6 +23,6 @@
 - **React Simple Typewriter** 
 - **React Toastify** 
 - **SweetAlert2** 
-- **React Responsive Carousel** ^3.2.23
+- **React Responsive Carousel**
 
 ---
