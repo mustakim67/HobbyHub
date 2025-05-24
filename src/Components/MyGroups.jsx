@@ -26,7 +26,7 @@ const MyGroups = () => {
         }).then((result) => {
             console.log(result.isConfirmed)
             if (result.isConfirmed) {
-                fetch(`http://localhost:3000/groups/${_id}`, {
+                fetch(`https://hobby-hub-server-ebon.vercel.app/groups/${_id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
