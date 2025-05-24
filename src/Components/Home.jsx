@@ -137,7 +137,34 @@ const Home = () => {
       </div>
     </section>
   </div>
-
+    <h1 className='text-center text-2xl font-semibold my-5 md:my-10'>FAQ<br/> <span className='text-blue-500'>(Frequently Asked Questions)</span></h1>
+  <div className="join join-vertical bg-base-100 w-full px-[7%]">
+  <div className="collapse collapse-arrow join-item border-base-300 border">
+    <input type="radio" name="my-accordion-4" defaultChecked />
+    <div className="collapse-title font-semibold">What is this website about?</div>
+    <div className="collapse-content text-sm">This website is for people who enjoy hobbies like hiking, photography, kayaking, and more. You’ll find tips, guides, and inspiration to enjoy your favorite activities.</div>
+  </div>
+  <div className="collapse collapse-arrow join-item border-base-300 border">
+    <input type="radio" name="my-accordion-4" />
+    <div className="collapse-title font-semibold">Do I need an account to use this website?</div>
+    <div className="collapse-content text-sm">Yes, you can explore all the public content with a single account. If you want to join groups creating an account is helpful.</div>
+  </div>
+  <div className="collapse collapse-arrow join-item border-base-300 border">
+    <input type="radio" name="my-accordion-4" />
+    <div className="collapse-title font-semibold">Are these activities beginner-friendly?</div>
+    <div className="collapse-content text-sm">Yes! We share easy guides for beginners so anyone can start learning and enjoying a hobby step by step.</div>
+  </div>
+   <div className="collapse collapse-arrow join-item border-base-300 border">
+    <input type="radio" name="my-accordion-4" />
+    <div className="collapse-title font-semibold"> Can I join hobby groups with others?</div>
+    <div className="collapse-content text-sm">Yes! You can join featured groups and connect with people who share the same interests.</div>
+  </div>
+  <div className="collapse collapse-arrow join-item border-base-300 border">
+    <input type="radio" name="my-accordion-4" />
+    <div className="collapse-title font-semibold">How often is new content added?</div>
+    <div className="collapse-content text-sm">We try to add fresh blogs, tips, and group activities every week, so there's always something new to explore.</div>
+  </div>
+</div>
     </>
     
   );
