@@ -56,6 +56,88 @@ const Home = () => {
       </Carousel>
     </div>
     <FeaturedGroups></FeaturedGroups>
+    <div className="px-[7%] py-12">
+  <section className="px-[7%] py-12">
+      <h2 className="text-2xl md:text-3xl font-bold mb-10 text-center">
+        <span className='text-blue-500'>Learn More</span> about your passion
+      </h2>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+         {/*Card-1 */}
+        <div className=" rounded-2xl shadow-md overflow-hidden">
+          <img
+            src="https://i.ibb.co/NnJC3vVc/rahul-dey-kz-Q6gb-TR-Fg-unsplash.jpg"
+            alt=""
+            className="h-48 w-full object-cover"
+          />
+          <div className="p-4">
+            <h3 className="text-xl font-semibold mb-2">Master the Trails</h3>
+            <p className=" text-sm mb-4">
+              Discover gear, safety tips, and scenic routes to ignite your hiking journey.
+            </p>
+            <a href="" className="text-blue-600 text-sm font-medium hover:underline">
+              Read More →
+            </a>
+          </div>
+        </div>
+
+         {/*Card-2 */}
+        <div className=" rounded-2xl shadow-md overflow-hidden">
+          <img
+            src="https://i.ibb.co/GQ81jCKR/alex-guillaume-xou-Pt-ZUT9g-U-unsplash.jpg"
+            alt=""
+            className="h-48 w-full object-cover"
+          />
+          <div className="p-4">
+            <h3 className="text-xl font-semibold mb-2">Photography Basics</h3>
+            <p className=" text-sm mb-4">
+              Learn to capture life’s moments beautifully with beginner-friendly photography tips.
+            </p>
+            <a href="" className="text-blue-600 text-sm font-medium hover:underline">
+              Read More →
+            </a>
+          </div>
+        </div>
+
+         {/*Card-3 */}
+        <div className=" rounded-2xl shadow-md overflow-hidden">
+          <img
+            src="https://i.ibb.co/KpZTjfb1/the-tampa-bay-estuary-program-KUU87l4-KSo-E-unsplash.jpg"
+            alt=""
+            className="h-48 w-full object-cover"
+          />
+          <div className="p-4">
+            <h3 className="text-xl font-semibold mb-2">Kayaking for Beginners</h3>
+            <p className=" text-sm mb-4">
+              Ride through the water safely and smoothly with our beginner kayaking insights.
+            </p>
+            <a href="" className="text-blue-600 text-sm font-medium hover:underline">
+              Read More →
+            </a>
+          </div>
+        </div>
+
+        {/*Card-4 */}
+        <div className=" rounded-2xl shadow-md overflow-hidden">
+          <img
+            src="https://i.ibb.co/QvG2r71z/eric-prouzet-1a-Yp7-IFk-HRM-unsplash.jpg"
+            alt=""
+            className="h-48 w-full object-cover"
+          />
+          <div className="p-4">
+            <h3 className="text-xl font-semibold mb-2">Books vibe!</h3>
+            <p className=" text-sm mb-4">
+             Book is not just only a collection of words , it has an impact on our life.
+            </p>
+            <a href="" className="text-blue-600 text-sm font-medium hover:underline">
+              Read More →
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
     </>
     
   );

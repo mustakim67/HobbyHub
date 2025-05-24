@@ -4,7 +4,7 @@ import { NavLink } from 'react-router';
 const Footer = () => {
     return (
         <div>
-            <footer className="footer footer-horizontal footer-center bg-black text-white rounded p-10 pt-10">
+            <footer className="footer footer-horizontal footer-center bg-black text-white rounded p-10 pt-10 border-t-4">
                 <nav className="grid grid-flow-col gap-4">
                     <NavLink to={'/home'}>Home</NavLink>
                     <NavLink to={'/all-groups'}>All Groups</NavLink>

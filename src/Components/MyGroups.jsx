@@ -158,6 +158,8 @@ const MyGroups = () => {
                                 value={Update?.category} //value kaj kore default value kaj kore na
                             >
                                 <option value="">Select a category</option>
+                                <option value="Hikings">Hikings</option>
+                                <option value="Kayakings">Kayakings</option>
                                 <option value="Drawing and Painting">Drawing and Painting</option>
                                 <option value="Photography">Photography</option>
                                 <option value="Video Gaming">Video Gaming</option>

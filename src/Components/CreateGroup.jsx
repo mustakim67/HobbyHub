@@ -67,6 +67,8 @@ const CreateGroup = () => {
                     <label className="block mb-1 font-semibold">Hobby Category</label>
                     <select name="category" className="w-full select select-bordered" required>
                         <option value="">Select a category</option>
+                        <option>Hikings</option>
+                         <option>Kayaking</option>
                         <option>Drawing and Painting</option>
                         <option>Photography</option>
                         <option>Video Gaming</option>
