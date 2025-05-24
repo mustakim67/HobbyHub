@@ -40,7 +40,7 @@ const Navbar = () => {
                         )}
                     </ul>
                 </div>
-                <img className='w-16 md:w-22' src={logo} alt="" /><h1 className='text-xl md:text-2xl'>Hobby<span className='font-bold'>Hub</span></h1>
+               <Link to={'/home'}><img className='w-16 md:w-22' src={logo} alt="" /><h1 className='text-xl md:text-2xl'>Hobby<span className='font-bold'>Hub</span></h1></Link> 
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-3 text-lg gap-4">
