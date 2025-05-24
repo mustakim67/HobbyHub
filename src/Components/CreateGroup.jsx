@@ -136,7 +136,7 @@ const CreateGroup = () => {
                     <input
                         type="text"
                         name="userName"
-                        className="w-full input input-bordered bg-gray-100 cursor-not-allowed"
+                        className="w-full input input-bordered  cursor-not-allowed"
                         value={user?.displayName || ""}
                         readOnly
                     />
@@ -147,7 +147,7 @@ const CreateGroup = () => {
                     <input
                         type="email"
                         name="userEmail"
-                        className="w-full input input-bordered bg-gray-100 cursor-not-allowed"
+                        className="w-full input input-bordered  cursor-not-allowed"
                         value={user?.email || ""}
                         readOnly
                     />

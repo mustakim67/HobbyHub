@@ -1,9 +1,11 @@
 import React from 'react';
 import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import FeaturedGroups from './FeaturedGroups';
 
 const Home = () => {
   return (
+    <>
     <div className="px-[7%] mt-6 rounded-xl">
       <Carousel
         autoPlay
@@ -53,6 +55,9 @@ const Home = () => {
         </div>
       </Carousel>
     </div>
+    <FeaturedGroups></FeaturedGroups>
+    </>
+    
   );
 };
 

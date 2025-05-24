@@ -38,7 +38,7 @@ const GroupDetails = () => {
                     <p><span className="font-semibold">Max Members:</span> {actualData.maxMembers}</p>
                     <p><span className="font-semibold">Created By:</span> {actualData.userName}</p>
                     {
-                        new Date() < new Date(actualData.endDate) ? (
+                        new Date(today) <= new Date(actualData.endDate) ? (
                             <button className='btn btn-sm rounded-xl bg-blue-700 text-white'>
                                 Join Group
                             </button>
