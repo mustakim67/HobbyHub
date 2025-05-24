@@ -53,7 +53,7 @@ const MyGroups = () => {
         const updateData = Object.fromEntries(formData.entries());
         updateData.category = form.category.value;
         //send update data to db
-        fetch(`http://localhost:3000/groups/${Update._id}`, {
+        fetch(`https://hobby-hub-server-ebon.vercel.app/groups/${Update._id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

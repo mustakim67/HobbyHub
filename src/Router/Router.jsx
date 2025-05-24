@@ -35,12 +35,12 @@ const router = createBrowserRouter([
       },
       {
         path:'/all-groups',
-        loader:()=>fetch('http://localhost:3000/groups'),
+        loader:()=>fetch('https://hobby-hub-server-ebon.vercel.app/groups'),
         Component:AllGroups
       },
       {
         path:'/my-groups',
-         loader:()=>fetch('http://localhost:3000/groups'),
+         loader:()=>fetch('https://hobby-hub-server-ebon.vercel.app/groups'),
         element:<PrivateRoutes><MyGroups></MyGroups></PrivateRoutes>
       },
       {
@@ -49,7 +49,7 @@ const router = createBrowserRouter([
       },
       {
         path:'/group-details/:id',
-        loader:()=>fetch('http://localhost:3000/groups'),
+        loader:()=>fetch('https://hobby-hub-server-ebon.vercel.app/groups'),
         element:<PrivateRoutes><GroupDetails></GroupDetails></PrivateRoutes>
       }
     ]
