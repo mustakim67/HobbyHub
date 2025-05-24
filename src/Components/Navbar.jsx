@@ -28,14 +28,14 @@ const Navbar = () => {
                     </div>
                     <ul
                         tabIndex={0}
-                        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-                        <NavLink to="/home" className="text-lg mr-6">Home</NavLink>
-                        <NavLink to="/all-groups" className="text-lg mr-6">All Groups</NavLink>
+                        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow text-lg">
+                        <NavLink to="/home" className={({ isActive }) => isActive ? 'font-bold text-blue-700' : ''}>Home</NavLink>
+                        <NavLink to="/all-groups" className={({ isActive }) => isActive ? 'font-bold text-blue-700' : ''}>All Groups</NavLink>
 
                         {user && (
                             <>
-                                <NavLink to="/my-groups" className="text-lg mr-6">My Groups</NavLink>
-                                <NavLink to="/create-group" className="text-lg mr-6">Create Group</NavLink>
+                                <NavLink to="/my-groups" className={({ isActive }) => isActive ? 'font-bold text-blue-700' : ''}>My Groups</NavLink>
+                               <NavLink to="/create-group" className={({ isActive }) => isActive ? 'font-bold text-blue-700' : ''}>Create Group</NavLink>
                             </>
                         )}
                     </ul>
@@ -43,16 +43,16 @@ const Navbar = () => {
                 <img className='w-16 md:w-22' src={logo} alt="" /><h1 className='text-xl md:text-2xl'>Hobby<span className='font-bold'>Hub</span></h1>
             </div>
             <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal px-3">
-                    <NavLink to="/home" className="text-lg mr-6">Home</NavLink>
-                    <NavLink to="/all-groups" className="text-lg mr-6">All Groups</NavLink>
+                <ul className="menu menu-horizontal px-3 text-lg gap-4">
+                    <NavLink to="/home" className={({ isActive }) => isActive ? 'font-bold text-blue-700' : ''}>Home</NavLink>
+                        <NavLink to="/all-groups" className={({ isActive }) => isActive ? 'font-bold text-blue-700' : ''}>All Groups</NavLink>
 
-                    {user && (
-                        <>
-                            <NavLink to="/my-groups" className="text-lg mr-6">My Groups</NavLink>
-                            <NavLink to="/create-group" className="text-lg mr-6">Create Group</NavLink>
-                        </>
-                    )}
+                     {user && (
+                            <>
+                                <NavLink to="/my-groups" className={({ isActive }) => isActive ? 'font-bold text-blue-700' : ''}>My Groups</NavLink>
+                               <NavLink to="/create-group" className={({ isActive }) => isActive ? 'font-bold text-blue-700' : ''}>Create Group</NavLink>
+                            </>
+                        )}
                 </ul>
             </div>
 
