@@ -1,7 +1,7 @@
 # HobbyHub
 
 **Live Site:** [(https://hobby-hub-fc4c7.web.app/home)]
-HobbyHub is a platform where people can discover and join local hobby-based groups (e.g., book clubs, hiking crews, painting circles) or create their own. It encourages social engagement through shared interests, helping people build communities around their passions.
+- ##HobbyHub is a platform where people can discover and join local hobby-based groups (e.g., book clubs, hiking crews, painting circles) or create their own. It encourages social engagement through shared interests, helping people build communities around their passions.
 
 
 ## Features
