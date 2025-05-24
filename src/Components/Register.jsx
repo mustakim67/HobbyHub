@@ -103,12 +103,12 @@ const Register = () => {
     };
     return (
         <div>
-            <div className="min-h-[500px] py-15 flex items-center justify-center bg-gray-100 px-4">
-                <div className="w-full max-w-md bg-white p-6 rounded-xl shadow-lg">
+            <div className="min-h-[500px] py-15 flex items-center justify-center px-4">
+                <div className="w-full max-w-md p-6 rounded-xl shadow-lg">
                     <h1 className="text-3xl font-bold text-center mb-3">Register</h1>
                     <form onSubmit={handleRegisterData} className="space-y-3">
                         <div>
-                            <label className="block text-sm font-medium text-gray-700 mb-1">
+                            <label className="block text-sm font-medium mb-1">
                                 Name
                             </label>
                             <input
@@ -120,7 +120,7 @@ const Register = () => {
                             />
                         </div>
                         <div>
-                            <label className="block text-sm font-medium text-gray-700 mb-1">
+                            <label className="block text-sm font-medium  mb-1">
                                 Photo URL
                             </label>
                             <input
@@ -134,7 +134,7 @@ const Register = () => {
                             />
                         </div>
                         <div>
-                            <label className="block text-sm font-medium text-gray-700 mb-1">
+                            <label className="block text-sm font-medium  mb-1">
                                 Email
                             </label>
                             <input
@@ -147,7 +147,7 @@ const Register = () => {
 
                         </div>
                         <div className='relative'>
-                            <label className="block text-sm font-medium text-gray-700 mb-1">
+                            <label className="block text-sm font-medium  mb-1">
                                 Password
                             </label>
                             <input

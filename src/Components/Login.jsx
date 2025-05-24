@@ -4,6 +4,7 @@ import { GoogleAuthProvider } from 'firebase/auth';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../Context/AuthContext';
 import { auth } from '../Firebase/Firebase.init';
+import Lottie from './Lottie';
 
 const Login = () => {
     const { signInUser, googleSignIn, user,status,setStatus } = useContext(AuthContext);
@@ -59,12 +60,16 @@ const Login = () => {
 
     return (
         <>
-            <div className="min-h-[700px] flex items-center justify-center bg-[url(/img/mountains.jpg)] px-4">
-                <div className="w-full max-w-md bg-white p-8 rounded-xl shadow-lg">
+            <div className="min-h-[700px] flex flex-col md:flex-row  items-center justify-center bg-[url(/img/mountains.jpg)] px-4">
+            <div className='max-w-xs md:max-w-xl'>
+                <Lottie></Lottie>
+            </div>
+            
+                <div className="w-full max-w-md  p-8 rounded-xl shadow-lg">
                     <h1 className="text-3xl font-bold text-center mb-6">Log In</h1>
                     <form onSubmit={handleLoginData} className="space-y-3">
                         <div>
-                            <label className="block text-sm font-medium text-gray-700 mb-1">
+                            <label className="block text-sm font-medium  mb-1">
                                 Email
                             </label>
                             <input
@@ -76,7 +81,7 @@ const Login = () => {
                             />
                         </div>
                         <div>
-                            <label className="block text-sm font-medium text-gray-700 mb-1">
+                            <label className="block text-sm font-medium  mb-1">
                                 Password
                             </label>
                             <input
