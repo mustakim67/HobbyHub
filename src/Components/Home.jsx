@@ -18,11 +18,11 @@ const Home = () => {
         swipeable
         emulateTouch
       >
-        <div className="relative rounded-xl">
+        <div className="relative rounded-xl h-[70dvh]">
           <img
             src="https://i.ibb.co/NnJC3vVc/rahul-dey-kz-Q6gb-TR-Fg-unsplash.jpg"
             alt="Hiking "
-            className="w-full object-cover h-[500px] rounded-xl"
+            className="w-full object-cover h-[70dvh] rounded-xl"
           />
           <div className="absolute top-1/3 left-10 text-white max-w-xl">
             <h2 className="text-4xl md:text-5xl font-bold mb-3 ">Explore the Trails</h2>
@@ -30,11 +30,11 @@ const Home = () => {
           </div>
         </div>
 
-        <div className="relative rounded-xl">
+        <div className="relative rounded-xl h-[70dvh]">
           <img
             src="https://i.ibb.co/GQ81jCKR/alex-guillaume-xou-Pt-ZUT9g-U-unsplash.jpg"
             alt="Photography"
-            className="w-full object-cover h-[500px] rounded-xl"
+            className="w-full object-cover h-[70dvh] rounded-xl"
           />
           <div className="absolute top-1/3 left-8  text-white max-w-xl">
             <h2 className="text-4xl md:text-5xl font-bold mb-3">Capture Every Moment</h2>
@@ -42,11 +42,11 @@ const Home = () => {
           </div>
         </div>
 
-        <div className="relative rounded-xl">
+        <div className="relative rounded-xl h-[70dvh]">
           <img
             src="https://i.ibb.co/KpZTjfb1/the-tampa-bay-estuary-program-KUU87l4-KSo-E-unsplash.jpg"
             alt="kayaking"
-            className="w-full object-cover h-[500px] rounded-xl"
+            className="w-full object-cover h-[70dvh] rounded-xl"
           />
           <div className="absolute top-1/3 left-8 text-white max-w-xl">
             <h2 className="text-4xl md:text-5xl font-bold mb-3">Ride the Waves</h2>
