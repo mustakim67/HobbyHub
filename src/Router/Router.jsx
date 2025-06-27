@@ -11,59 +11,123 @@ import GroupDetails from "../Components/GroupDetails";
 import Error from "../Components/Error";
 import Support from "../Components/Support";
 import About from "../Components/About";
-
+import DashboardLayout from "../Components/DashBoard/DashBoardLayout";
+import DashboardHome from "../Components/DashBoard/DashBoardHome";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    Component: Mainlayout,
-    errorElement:<Error></Error>,
-    children:[
+    element: <Mainlayout />,
+    errorElement: <Error />,
+    children: [
       {
-        index:true,
-        Component:Login
+        index: true,
+        element: <Login />,
       },
       {
-        path:"/login",
-        Component:Login
+        path: "/login",
+        element: <Login />,
       },
       {
-        path:"/register",
-        Component:Register
+        path: "/register",
+        element: <Register />,
       },
       {
-        path:"/home",
-        Component:Home
+        path: "/home",
+        element: <Home />,
       },
       {
-        path:'/all-groups',
-        loader:()=>fetch('https://hobby-hub-server-ebon.vercel.app/groups'),
-        Component:AllGroups
+        path: "/all-groups",
+        loader: () =>
+          fetch("https://hobby-hub-server-ebon.vercel.app/groups"),
+        element: <AllGroups />,
       },
       {
-        path:'/my-groups',
-         loader:()=>fetch('https://hobby-hub-server-ebon.vercel.app/groups'),
-        element:<PrivateRoutes><MyGroups></MyGroups></PrivateRoutes>
+        path: "/my-groups",
+        loader: () =>
+          fetch("https://hobby-hub-server-ebon.vercel.app/groups"),
+        element: (
+          <PrivateRoutes>
+            <MyGroups />
+          </PrivateRoutes>
+        ),
       },
       {
-        path:'/create-group',
-        element:<PrivateRoutes><CreateGroup></CreateGroup></PrivateRoutes>
+        path: "/create-group",
+        element: (
+          <PrivateRoutes>
+            <CreateGroup />
+          </PrivateRoutes>
+        ),
       },
       {
-        path:'/group-details/:id',
-        loader:()=>fetch('https://hobby-hub-server-ebon.vercel.app/groups'),
-        element:<PrivateRoutes><GroupDetails></GroupDetails></PrivateRoutes>
+        path: "/group-details/:id",
+        loader: () =>
+          fetch("https://hobby-hub-server-ebon.vercel.app/groups"),
+        element: (
+          <PrivateRoutes>
+            <GroupDetails />
+          </PrivateRoutes>
+        ),
       },
       {
-        path:'/support',
-        Component:Support
+        path: "/support",
+        element: <Support />,
       },
       {
-        path:'/about-us',
-        Component:About
-      }
-    ]
+        path: "/about-us",
+        element: <About />,
+      },
+    ],
   },
+ {
+  path: "/dashboard",
+  element:<PrivateRoutes><DashboardLayout /></PrivateRoutes> ,
+  children: [
+    {
+      index: true,
+       loader: () =>
+        fetch("https://hobby-hub-server-ebon.vercel.app/groups"),
+      element: <DashboardHome />,
+    },
+    {
+      path: "home",
+      element: <Home />,
+    },
+    {
+      path: "all-groups",
+      loader: () =>
+        fetch("https://hobby-hub-server-ebon.vercel.app/groups"),
+      element: <AllGroups />,
+    },
+    {
+      path: "my-groups",
+      loader: () =>
+        fetch("https://hobby-hub-server-ebon.vercel.app/groups"),
+      element: (
+        <PrivateRoutes>
+          <MyGroups />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "create-group",
+      element: (
+        <PrivateRoutes>
+          <CreateGroup />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "support",
+      element: <Support />,
+    },
+    {
+      path: "about-us",
+      element: <About />,
+    },
+  ],
+}
 ]);
 
 export default router;

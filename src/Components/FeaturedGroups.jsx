@@ -22,7 +22,7 @@ const FeaturedGroups = () => {
     };
 
     return (
-        <div className="px-[5%]">
+        <div className="px-[6%]">
             <div className='text-center text-3xl font-semibold mt-15 mb-5 text-blue-500'>
                  <Typewriter
                 words={['Featured Ongoing Groups']}

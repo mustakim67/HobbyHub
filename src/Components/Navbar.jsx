@@ -31,7 +31,10 @@ const Navbar = () => {
                         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow text-lg">
                         <NavLink to="/home" className={({ isActive }) => isActive ? 'font-bold text-blue-700' : ''}>Home</NavLink>
                         <NavLink to="/all-groups" className={({ isActive }) => isActive ? 'font-bold text-blue-700' : ''}>All Groups</NavLink>
-
+                        {
+                            user &&
+                            <NavLink to="/dashboard" className={({ isActive }) => isActive ? 'font-bold text-blue-700' : ''}><span className='mr-5'>DashBoard</span></NavLink>
+                        }
                         <NavLink to="/support" className={({ isActive }) => isActive ? 'font-bold text-blue-700' : ''}>Support</NavLink>
                         <NavLink to="/about-us" className={({ isActive }) => isActive ? 'font-bold text-blue-700' : ''}>About Us</NavLink>
 
@@ -43,9 +46,13 @@ const Navbar = () => {
                 <ul className="menu menu-horizontal px-3 mr-5 text-lg gap-4">
                     <NavLink to="/home" className={({ isActive }) => isActive ? 'font-bold text-blue-700' : ''}><span className='mr-5'>Home</span> </NavLink>
                     <NavLink to="/all-groups" className={({ isActive }) => isActive ? 'font-bold text-blue-700' : ''}><span className='mr-5'>All Groups</span></NavLink>
-
+                    {
+                        user &&
+                        <NavLink to="/dashboard" className={({ isActive }) => isActive ? 'font-bold text-blue-700' : ''}><span className='mr-5'>DashBoard</span></NavLink>
+                    }
                     <NavLink to="/support" className={({ isActive }) => isActive ? 'font-bold text-blue-700' : ''}><span className='mr-5'>Support</span></NavLink>
                     <NavLink to="/about-us" className={({ isActive }) => isActive ? 'font-bold text-blue-700' : ''}><span className='mr-5'>About Us</span></NavLink>
+
                 </ul>
             </div>
 
@@ -68,7 +75,6 @@ const Navbar = () => {
                         </div>
                         <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm -translate-x-20">
                             <li><a className='mx-auto'>{user?.displayName || "User Name"}</a></li>
-                            <li className='btn btn-sm my-2 rounded-full'>DashBoard</li>
                             <li><button onClick={() => {
                                 handleSignOut();
                             }} className='btn btn-sm mt-1 rounded-full'>Logout <IoMdLogOut size={18} /></button></li>

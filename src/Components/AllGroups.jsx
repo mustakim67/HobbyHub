@@ -12,7 +12,7 @@ const AllGroups = () => {
                 <table className="min-w-full text-sm md:text-base border border-gray-200 rounded-lg">
                     <thead>
                         <tr>
-                            <th className="text-left px-4 py-3">Group</th>
+                            <th className="text-left px-4 py-3">Groups</th>
                             <th className="text-left px-4 py-3">Category</th>
                             <th className="text-left px-4 py-3">Details</th>
                         </tr>

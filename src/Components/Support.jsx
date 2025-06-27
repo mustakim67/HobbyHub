@@ -3,7 +3,7 @@ import React from 'react';
 const Support = () => {
     return (
         <div>
-            <section class="py-16 px-[10%] mx-auto">
+            <section class="py-16 px-[7%] mx-auto">
                 {/* Header */}
                 <div class="text-center mb-12">
                     <h1 class="text-4xl font-bold ">Need Help?</h1>
