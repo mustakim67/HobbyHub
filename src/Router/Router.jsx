@@ -9,6 +9,8 @@ import MyGroups from "../Components/MyGroups";
 import CreateGroup from "../Components/CreateGroup";
 import GroupDetails from "../Components/GroupDetails";
 import Error from "../Components/Error";
+import Support from "../Components/Support";
+import About from "../Components/About";
 
 
 const router = createBrowserRouter([
@@ -51,6 +53,14 @@ const router = createBrowserRouter([
         path:'/group-details/:id',
         loader:()=>fetch('https://hobby-hub-server-ebon.vercel.app/groups'),
         element:<PrivateRoutes><GroupDetails></GroupDetails></PrivateRoutes>
+      },
+      {
+        path:'/support',
+        Component:Support
+      },
+      {
+        path:'/about-us',
+        Component:About
       }
     ]
   },

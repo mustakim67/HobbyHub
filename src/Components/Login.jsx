@@ -133,10 +133,10 @@ const Login = () => {
                         </button>
                     </div>
 
-                    <p className="text-center text-sm text-gray-600 mt-5">
+                    <p className="text-center text-sm mt-5">
                         Don’t have an account?{' '}
                         <Link to="/register" onClick={() => setStatus(!status)} className="text-blue-600 hover:underline">
-                            Register
+                             Register
                         </Link>
                     </p>
                 </div>

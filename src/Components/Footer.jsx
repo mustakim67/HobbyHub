@@ -1,13 +1,18 @@
 import React from 'react';
 import { NavLink } from 'react-router';
+import logo from '../assets/logo.png'
 
 const Footer = () => {
     return (
         <div>
             <footer className="footer footer-horizontal footer-center bg-black text-white rounded p-10 pt-10 border-t-4">
+                <img className='h-12' src={logo} alt="" />
+                <p className='text-2xl font-bold -mt-10'>HobbyHub</p>
                 <nav className="grid grid-flow-col gap-4">
-                    <NavLink to={'/home'}>Home</NavLink>
-                    <NavLink to={'/all-groups'}>All Groups</NavLink>
+                    <NavLink to={'/home'}><span className='mr-3'>Home</span></NavLink>
+                    <NavLink to={'/all-groups'}><span className='mr-5'>All Groups</span></NavLink>
+                    <NavLink to="/support" className={({ isActive }) => isActive ? 'font-bold text-blue-700' : ''}><span className='mr-3'>Support</span></NavLink>
+                    <NavLink to="/about-us" className={({ isActive }) => isActive ? 'font-bold text-blue-700' : ''}><span className='mr-3'>About Us</span></NavLink>
                 </nav>
                 <nav>
                     <div className="grid grid-flow-col gap-4">
