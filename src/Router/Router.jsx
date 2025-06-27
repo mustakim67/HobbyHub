@@ -13,6 +13,10 @@ import Support from "../Components/Support";
 import About from "../Components/About";
 import DashboardLayout from "../Components/DashBoard/DashBoardLayout";
 import DashboardHome from "../Components/DashBoard/DashBoardHome";
+import Trail from "../Articles/Trail";
+import Kayaking from "../Articles/Kayaking";
+import Photography from "../Articles/Photography";
+import Book from "../Articles/Book";
 
 const router = createBrowserRouter([
   {
@@ -39,13 +43,13 @@ const router = createBrowserRouter([
       {
         path: "/all-groups",
         loader: () =>
-          fetch("https://hobby-hub-server-ebon.vercel.app/groups"),
+          fetch("http://localhost:3000/groups"),
         element: <AllGroups />,
       },
       {
         path: "/my-groups",
         loader: () =>
-          fetch("https://hobby-hub-server-ebon.vercel.app/groups"),
+          fetch("http://localhost:3000/groups"),
         element: (
           <PrivateRoutes>
             <MyGroups />
@@ -63,7 +67,7 @@ const router = createBrowserRouter([
       {
         path: "/group-details/:id",
         loader: () =>
-          fetch("https://hobby-hub-server-ebon.vercel.app/groups"),
+          fetch("http://localhost:3000/groups"),
         element: (
           <PrivateRoutes>
             <GroupDetails />
@@ -78,6 +82,22 @@ const router = createBrowserRouter([
         path: "/about-us",
         element: <About />,
       },
+      {
+        path: "/explore-trails",
+        element: <Trail></Trail>,
+      },
+      {
+        path: "/kayaking",
+        element: <Kayaking></Kayaking>,
+      },
+      {
+        path: "/photography-basics",
+        element: <Photography></Photography>,
+      },
+      {
+        path: "/books-vibe",
+        element: <Book></Book>,
+      },
     ],
   },
  {
@@ -87,7 +107,7 @@ const router = createBrowserRouter([
     {
       index: true,
        loader: () =>
-        fetch("https://hobby-hub-server-ebon.vercel.app/groups"),
+        fetch("http://localhost:3000/groups"),
       element: <DashboardHome />,
     },
     {
@@ -97,13 +117,13 @@ const router = createBrowserRouter([
     {
       path: "all-groups",
       loader: () =>
-        fetch("https://hobby-hub-server-ebon.vercel.app/groups"),
+        fetch("http://localhost:3000/groups"),
       element: <AllGroups />,
     },
     {
       path: "my-groups",
       loader: () =>
-        fetch("https://hobby-hub-server-ebon.vercel.app/groups"),
+        fetch("http://localhost:3000/groups"),
       element: (
         <PrivateRoutes>
           <MyGroups />

@@ -1,11 +1,15 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../Context/AuthContext';
+import logo from '../../assets/logo.png'
 
 const DashNav = () => {
     const { user } = useContext(AuthContext);
-
     return (
-        <div className="navbar px-[4%] md:px-[7%] sticky top-0 z-50 bg-white/10 backdrop-blur-md border-b border-b-gray-300 py-5">
+        <div className="navbar px-[4%] md:mx-[7%] md:ml-[15%] bg-white/10 backdrop-blur-md border-b border-b-gray-300 py-5">
+            <div> 
+                <img className='w-16 md:w-22' src={logo} alt="" />
+                <h1 className="text-xl md:text-2xl">Hobby<span className='font-bold'>Hub</span></h1>
+                </div>
             <div className="w-full flex justify-end items-center gap-4">
                 {user && (
                     <div className="dropdown dropdown-hover">

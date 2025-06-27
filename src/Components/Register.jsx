@@ -41,7 +41,7 @@ const Register = () => {
                            email,
                            photo
                     }
-                    fetch('https://hobby-hub-server-ebon.vercel.app/users', {
+                    fetch('http://localhost:3000/users', {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json'

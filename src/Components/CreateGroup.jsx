@@ -15,7 +15,7 @@ const CreateGroup = () => {
         console.log(NewGroup);
 
         // send group data to the database
-        fetch('https://hobby-hub-server-ebon.vercel.app/groups', {
+        fetch('http://localhost:3000/groups', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -50,7 +50,7 @@ const CreateGroup = () => {
             </div>
             <form
                 onSubmit={handleSubmit}
-                className="mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mt-10 p-6 bg-white shadow-xl rounded-xl"
+                className="mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mt-10 p-6  shadow-xl rounded-xl"
             >
                 <div>
                     <label className="block mb-1 font-semibold">Group Name</label>
@@ -157,7 +157,7 @@ const CreateGroup = () => {
 
 
                 <div className="md:col-span-2">
-                    <button type="submit" className="w-full btn btn-primary mt-4">Create Group</button>
+                    <button type="submit" className="w-full btn bg-blue-600 mt-4">Create Group</button>
                 </div>
             </form>
         </>

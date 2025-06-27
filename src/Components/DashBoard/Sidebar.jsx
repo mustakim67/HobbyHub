@@ -1,6 +1,7 @@
 import { useContext } from 'react';
-import { Link, useNavigate } from 'react-router';
+import { Link, NavLink, useNavigate } from 'react-router';
 import { AuthContext } from '../../Context/AuthContext';
+import { IoMdLogOut } from 'react-icons/io';
 
 const Sidebar = () => {
      const {logOut} = useContext(AuthContext)
@@ -17,20 +18,20 @@ const Sidebar = () => {
 
     }
     return (
-        <div className="space-y-6">
-            <h1 className="text-2xl font-bold text-indigo-600 dark:text-indigo-400 mb-6">🔥 HobbyHub</h1>
+        <div className="space-y-6 ">
             <nav className="flex flex-col space-y-4">
-                <Link to="/home" className="hover:text-indigo-500">🏠 Home</Link>
-                <Link to="create-group" className="hover:text-indigo-500">➕ Create Group</Link>
-                <Link to="my-groups" className="hover:text-indigo-500">👥 My Groups</Link>
-                <Link to="all-groups" className="hover:text-indigo-500">👥 All Groups</Link>
-                <Link to="support" className="hover:text-indigo-500">🛠️ Support</Link>
-                <Link to="about-us" className="hover:text-indigo-500">ℹ️ About Us</Link>
+                <NavLink to="/dashBoard" className='text-xl font-bold'>DashBoard</NavLink>
+                <NavLink to="/home" className={({ isActive }) => isActive ? 'font-bold bg-blue-700 p-3 rounded-xl text-white' : ''}>🏠 Home</NavLink>
+                <NavLink to="create-group" className={({ isActive }) => isActive ? 'font-bold bg-blue-700 p-3 rounded-xl text-white' : ''}>➕ Create Group</NavLink>
+                <NavLink to="my-groups" className={({ isActive }) => isActive ? 'font-bold bg-blue-700 p-3 rounded-xl text-white' : ''}>👥 My Groups</NavLink>
+                <NavLink to="all-groups" className={({ isActive }) => isActive ? 'font-bold bg-blue-700 p-3 rounded-xl text-white' : ''}>👥 All Groups</NavLink>
+                <NavLink to="support" className={({ isActive }) => isActive ? 'font-bold bg-blue-700 p-3 rounded-xl text-white' : ''}>🛠️ Support</NavLink>
+                <NavLink to="about-us" className={({ isActive }) => isActive ? 'font-bold bg-blue-700 p-3 rounded-xl text-white' : ''}>ℹ️ About Us</NavLink>
 
             </nav>
 
-            <div className="absolute bottom-6 w-48">
-                <button onClick={handleSignOut} className="w-full text-sm border border-orange-500 text-orange-500 py-2 rounded hover:bg-orange-100 dark:hover:bg-gray-700">🚪 Logout</button>
+            <div className="absolute bottom-6 w-60 rounded-xl">
+                <button onClick={handleSignOut} className="w-full text-sm border btn btm-sm border-blue-700 bg-blue-700 text-white py-2 rounded "><IoMdLogOut size={18}/>Logout</button>
             </div>
         </div>
     );

@@ -26,7 +26,7 @@ const MyGroups = () => {
         }).then((result) => {
             console.log(result.isConfirmed)
             if (result.isConfirmed) {
-                fetch(`https://hobby-hub-server-ebon.vercel.app/groups/${_id}`, {
+                fetch(`http://localhost:3000/groups/${_id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
@@ -53,7 +53,7 @@ const MyGroups = () => {
         const updateData = Object.fromEntries(formData.entries());
         updateData.category = form.category.value;
         //send update data to db
-        fetch(`https://hobby-hub-server-ebon.vercel.app/groups/${Update._id}`, {
+        fetch(`http://localhost:3000/groups/${Update._id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

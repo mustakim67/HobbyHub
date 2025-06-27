@@ -6,7 +6,7 @@ const FeaturedGroups = () => {
     const [groups, setGroups] = useState([]);
 
     useEffect(() => {
-        fetch('https://hobby-hub-server-ebon.vercel.app/groups/featured')
+        fetch('http://localhost:3000/groups/featured')
             .then(res => res.json())
             .then(data => {
                 setGroups(data.slice(0, 6));
